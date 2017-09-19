@@ -29,11 +29,12 @@ public class MainController {
     @RequestMapping("/")
     @ResponseBody
     public String index(){
-        StringBuilder s = new StringBuilder();
-        eventsRepository.findAll()
-                .forEach(s::append);
+//        StringBuilder s = new StringBuilder();
+        StringBuffer s = new StringBuffer();
+        Iterable<Event> eventIList =  eventsRepository.findAll();
+        eventIList.forEach(event -> s.append(event.toString()));
         Logger logger = LoggerFactory.getLogger(MainController.class);
-        logger.info(eventsRepository.toString());
+        logger.info(s.toString());
 
         return s.toString();
     }

@@ -42,4 +42,13 @@ public class Event {
     public void setPerson(String person) {
         this.person = person;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Event{");
+        sb.append("description='").append(description).append('\'');
+        sb.append(", person='").append(person).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
